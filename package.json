@@ -1,0 +1,20 @@
+{
+  "name": "discord-chat-export",
+  "version": "1.0.0",
+  "description": "Convert a discord channel to html file",
+  "main": "build/index.js",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "tsc",
+    "watch": "nodemon src/index.ts"
+  },
+  "dependencies": {
+    "@types/node": "^16.11.7",
+    "typescript": "^4.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0"
+  }
+}
