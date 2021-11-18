@@ -1,3 +1,5 @@
+import {ExportExecutor} from "./executors";
+
 export {
     AbstractExecutor,
     ExportExecutor

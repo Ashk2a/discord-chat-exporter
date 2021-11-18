@@ -9,5 +9,5 @@ export interface ExportOptions extends Options {
 
 export let defaultExportOptions = {
     output: process.env.DISCORD_CHAT_EXPORTER_OUTPUT_DIR ?? 'output',
-    format: process.env.DISCORD_CHAT_EXPORTER_OUTPUT_DIR ?? 'HtmlDark'
+    format: process.env.DISCORD_CHAT_EXPORTER_FORMAT ?? 'HtmlDark'
 }

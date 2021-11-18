@@ -1,2 +1,2 @@
-export {AbstractExecutor} from "./AbstractExcutor";
+export {AbstractExecutor} from "./AbstractExecutor";
 export {ExportExecutor} from "./ExportExecutor";

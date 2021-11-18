@@ -1,4 +1,4 @@
-import {AbstractExecutor} from "./AbstractExcutor";
+import {AbstractExecutor} from "./AbstractExecutor";
 import {defaultExportOptions, ExportOptions} from "../options";
 
 export class ExportExecutor extends AbstractExecutor {
