@@ -5,20 +5,27 @@ const fs = require("fs");
 const {exec} = require("child_process");
 
 export abstract class AbstractExecutor {
-    protected readonly dotnetBinary: string = process.env.DOTNET_BIN ?? './node_modules/.bin/dotnet';
-    protected readonly discordChatExporterBinary: string = process.env.DISCORD_CHAT_EXPORTER_CLI_BIN ?? 'cli/DiscordChatExporter.Cli.dll';
+    protected readonly dotnetBinary: string = process.env.DOTNET_BIN ?? 'dotnet';
+    protected readonly discordChatExporterBinary: string = process.env.DISCORD_CHAT_EXPORTER_CLI_BIN ?? __dirname + '/../../cli/DiscordChatExporter.Cli.dll';
 
-    protected constructor(private command:string, public options: Options) {
-        const binaries = [this.dotnetBinary, this.discordChatExporterBinary];
+    protected constructor(protected command:string, public options: Options) {
+        this.options = {...this.defaultOptions(), ...options}
 
-        binaries.forEach((binary) => {
-            if (false === fs.existsSync(binary)) {
-                throw `${binary}  isn't a valid binary file.`
-            }
-        })
+        if (false === fs.existsSync(this.discordChatExporterBinary)) {
+            throw `${this.discordChatExporterBinary}  isn't a valid binary file.`
+        }
     }
 
-    public buildCommand(): string
+    protected defaultOptions(): any
+    {
+        return {
+            token: process.env.DISCORD_BOT_TOKEN,
+            output: process.env.DISCORD_CHAT_EXPORTER_OUTPUT_DIR ?? 'output',
+            format: process.env.DISCORD_CHAT_EXPORTER_FORMAT ?? 'HtmlDark'
+        }
+    }
+
+    protected buildCommand(): string
     {
         let command = `${this.dotnetBinary} ${this.discordChatExporterBinary} ${this.command}`;
 
