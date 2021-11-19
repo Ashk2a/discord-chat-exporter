@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Wrapper for Tyrrrz/DiscordChatExporter CLI in javascript",
   "main": "build/index.js",
+  "typings": "src/index.ts",
   "author": "Ashk#0001",
   "license": "MIT",
   "keywords": [
