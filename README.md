@@ -12,7 +12,7 @@ npm install discord-chat-exporter
 
 ### Using yarn
 ```sh-session
-yar add discord-chat-exporter
+yarn add discord-chat-exporter
 ```
 
 ## Environment variables
