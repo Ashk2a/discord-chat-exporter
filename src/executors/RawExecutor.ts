@@ -6,6 +6,6 @@ export class RawExecutor extends AbstractExecutor {
     }
 
     protected buildCommand(): string {
-        return `${this.dotnetBinary} ${this.discordChatExporterBinary} ${this.command}`;
+        return this.buildCommandBase();
     }
 }
